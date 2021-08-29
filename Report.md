@@ -14,30 +14,21 @@ This report contains the introduction of the algorithm, and the network architec
 
 ![Agent][image1]
 
-### 2. Learning Algorithm
-
-In this section we briefly describe the learning algorithm, along with the network architectures used in this project.
+### 1. Learning Algorithm
 
 Reinforcement learning algorithms can be categoized as either value-based, policy-based or combination of the two. Value-based learning consists of learning a state-action value function (Value/Q-function) that leads to the highest-valued state, by contract the policy-based approach tries to directly learn a (optimal) policy function directly (without the intermediary Value/Q-function).
 
-In the previous [project-1](https://github.com/sysadminamit/Udacity-Deep-Reinforcement-learning-Project-1) we used a value-based algorithm, Deep Q-Network (DQN), to successfuly train an agent to navigate an environment scattered with good and bad bananas. DQN has seen much success dealing with environments with high-dimensional (complex) states but only dealing with discrete actions. Unfortunately value-based algorithms don't scale well when the action space is large, such as when they require a continous output (as its very difficult to converge for large action spaces) such as what is required in this project.
-
-Deep Deterministic Policy Gradient (DDPG) (the algorithm used in this project) builds on DPG but introduces an actor-critic architecture to deal with a large action space (continous or discrete).
+Within the category of value-based methods, there is an existing algorithm called DQN, which is training a deep neural network to provide a staste-action value function, and has been proven to be effective under the scenario of discrete action space. However, in this environment, we need to make actions in continuous action space. Thus, we will use the Deep Deterministic Policy Gradient (DDPG) algorithm instead. This algorithm builds on DPG but introduces an actor-critic architecture to deal with continuous action space.
 
  - DDPG is a policy gradient algorithm that uses a stochastic behavior policy for good exploration but estimates a deterministic target policy, which is much easier to learn. Policy gradient algorithms utilize a form of policy iteration: they evaluate the policy, and then follow the policy gradient to maximize performance. Since DDPG is off-policy and uses a deterministic target policy, this allows for the use of the Deterministic Policy Gradient theorem (which will be derived shortly). DDPG is an actor-critic algorithm as well; it primarily uses two neural networks, one for the actor and one for the critic. These networks compute action predictions for the current state and generate a temporal-difference (TD) error signal each time step. The input of the actor network is the current state, and the output is a single real value representing an action chosen from a continuous action space (whoa!). The critic’s output is simply the estimated Q-value of the current state and of the action given by the actor. The deterministic policy gradient theorem provides the update rule for the weights of the actor network. The critic network is updated from the gradients obtained from the TD error signal.
  
 The Actor-Critic learning algorithm is used to represent the policy function independently of the value function. The policy function structure is known as the actor, and the value function structure is referred to as the critic. The actor produces an action given the current state of the environment, and the critic produces a TD (Temporal-Difference) error signal given the state and resultant reward. If the critic is estimating the action-value function Q(s,a), it will also need the output of the actor. The output of the critic drives learning in both the actor and the critic. In Deep Reinforcement Learning, neural networks can be used to represent the actor and critic structures.
 
-The figure below illustrates the Actor-critic Architecture (source [Continous Control with Deep Reinforcement Learning](https://arxiv.org/pdf/1509.02971.pdf)).
+### 2. Network Architecture
 
-![ ](Images/actor_critic_architecture_image.png)
+The network architecture design started from the DDPG sample from the Deep Reinforcement Learning Nano-Degree repo. We kept the same basic network architecture in terms of number of layers and number of units: 2 fully connected hidden layers with ReLu activations for both the actor and the critic networks. Two hidden layers were using 128 units respectively. TWe added a batch normalization after the first hidden layer for the actor network to speed up the training. We also added the same batch normalization layer in the critic network. The smoothing/regularizing effect of batch normalization was proven with the score performance in the early stage of the training process.
 
-
-
-### 3. Network Architectures.
-Throughout my experimentation phase I did not change the basic network architecture much in terms of number of layers and number of units: it was always 2 fully connected hidden layers with ReLu activations for both the actor and the critic. I am using 128/128 units for the two hidden layers in this project. The main improvement to get the agent to train came from a suggestion in the Nanodegree Slack channel: When introducing batch normalization after the first hidden layer for the actor network the training started to get somewhere. Before (with the standard feedforward network and some optimizations outlined below), the training would stall at average score of 1 − 2. I later decided to add one batch normalization layer also in the critic network. Looking at the training progress (see chart below), the smoothing/regularizing effect of batch normalization was pronounced in the sense that training progress started visibly after only a handful of episodes.
-
-### 4. Hyper-parameters
+### 3. Hyper-parameters
 
 We used the following hyperparameters in the training process:
 
@@ -52,7 +43,7 @@ WEIGHT_DECAY = 0        # L2 weight decay
 
 ```
 
-### 5. Training Scores
+### 4. Training Scores
 The agent was able to solve the environment by achieving score of 30.0 over 100 consecutive episodes after 231 episodes.
 ![ ](Images/plot.jpg)
 
