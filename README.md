@@ -1,9 +1,6 @@
-# drlnd_continuous_control
-Repository for Deep Reinforcement Learning Nano-Degree project #2: Continuous Control.
-
 [//]: # (Image References)
 
-[image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
+[image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
 
 # Project 2: Continuous Control
 
