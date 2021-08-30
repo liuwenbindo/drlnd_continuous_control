@@ -44,16 +44,24 @@ WEIGHT_DECAY = 0        # L2 weight decay
 ```
 
 ### 4. Training Scores
-The agent was able to solve the environment by achieving score of 30.0 over 100 consecutive episodes after about 1000 episodes.
+The agent was able to solve the environment by achieving score of 30.0 over 100 consecutive episodes after 1023 episodes.
 ![ ](training_scores.png)
 
 ### 5. Training Output
 
 ```
-Episode 100	Average Score: 2.74
-Episode 200	Average Score: 23.88
-Episode 231	Average Score: 30.19
-Environment solved in 231 episodes!	Average Score: 30.19
+Episode 100	Average Score: 5.59
+Episode 200	Average Score: 23.48
+Episode 300	Average Score: 26.13
+Episode 400	Average Score: 26.28
+Episode 500	Average Score: 28.15
+Episode 600	Average Score: 24.98
+Episode 700	Average Score: 26.39
+Episode 800	Average Score: 27.78
+Episode 900	Average Score: 28.27
+Episode 1000	Average Score: 28.86
+Episode 1023	Average Score: 30.01
+Environment solved in 1023 episodes!	Average Score: 30.01
 ```
 
 ### 6. Future Improvements
