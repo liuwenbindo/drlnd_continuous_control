@@ -44,8 +44,8 @@ WEIGHT_DECAY = 0        # L2 weight decay
 ```
 
 ### 4. Training Scores
-The agent was able to solve the environment by achieving score of 30.0 over 100 consecutive episodes after 231 episodes.
-![ ](Images/plot.jpg)
+The agent was able to solve the environment by achieving score of 30.0 over 100 consecutive episodes after about 1000 episodes.
+![ ](training_scores.png)
 
 ### 5. Training Output
 
