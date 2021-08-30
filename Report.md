@@ -4,7 +4,7 @@
 
 ### 0. Introduction
 
-This project is to create an agent within Unity's Reacher environment to control a double-jointed arm such that it would track a ball around: A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
+This project is to create an agent within Unity's Reacher environment to control a double-jointed arm such that it would track a ball around: A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible. The picture below shows how the environment works, but this picture shows the multi-agent case, and in this project we are dealing with single agent.
 
 In order to solve the environment, our agent must achieve an average score of +30 over 100 consecutive episodes.
 
