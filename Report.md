@@ -1,6 +1,6 @@
 [//]: # (Image References)
 
-[image1]: https://github.com/joshnewnham/Udacity_DeepReinforcementLearning_Project2/blob/master/images/reacher.gif "Agent"
+[image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
 
 ### 0. Introduction
 
@@ -12,7 +12,7 @@ The observation space consists of 33 variables corresponding to position, rotati
 
 This report contains the introduction of the algorithm, and the network architecture. Also we included the training hyperparameters being used and result we achieved.
 
-![Agent][image1]
+![Trained Agent][image1]
 
 ### 1. Learning Algorithm
 
